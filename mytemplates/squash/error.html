@@ -1,0 +1,15 @@
+{% extends "/home/mbesto/webapps/brosef/mytemplates/squash/base.html" %}
+
+{% block title %}Add Match{% endblock %}
+
+{% block content %}
+
+<form action="/squash/events/add/" method="post">{% csrf_token %}
+<p><label for="id_date">Date:</label>
+    <input id="id_date" type="text" name="date" /></p>
+<p><label for="id_userid">Userid:</label>
+    <input type="text" name="userid" id="id_userid" /></p>
+<input type="submit" value="Submit" />
+</form>
+<h2>ERROR</h2>
+{% endblock %}

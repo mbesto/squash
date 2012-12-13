@@ -1,0 +1,27 @@
+{% if matches_list %}
+    <table border="1">
+    	<tr>
+    		<td>MatchID</td>
+    		<td>Date</td>
+    		<td>Time</td>
+    		<td>Player1</td>
+    		<td>Player2</td>
+    		<td>P1 Games Won</td>
+    		<td>P2 Games Won</td>
+    		<td>W/L/D</td>
+    	</tr>
+    {% for matches in matches_list %}
+    	<tr>
+    		<td>{{ matches.id }}</td> 
+    		<td>{{ matches.date|date:"d-m-Y" }}</td>
+    		<td>{{ matches.date|date:"G:i" }}</td>
+    		<td></td>
+    		<td></td>
+    		<td></td>
+    		<td></td>
+    		<td></td>
+    	</tr>
+	{% endfor %}
+{% else %}
+    <p>No matches are available.</p>
+{% endif %}

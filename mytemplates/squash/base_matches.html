@@ -1,0 +1,41 @@
+{% extends "/home/mbesto/webapps/brosef/mytemplates/squash/base.html" %}
+
+{% block title %}View Matches{% endblock %}
+
+{% block content %}
+{% if matches_list %}
+    <table class="matchTable">
+    	<tr>
+    		<th>MatchID</th>
+    		<th>Date</th>
+    		<th>Time</th>
+    		<th>Court</th>
+    		<th>Court No.</th>
+    		<th>Player1</th>
+    		<th>P1 Wins</th>
+    		<th>Player2</th>
+    		<th>P2 Wins</th>
+    	</tr>
+    {% for matches in matches_list %}
+    	<tr class="{% cycle 'row1' 'row2' %}">
+    		<td>{{ matches.id }}</td> 
+    		<td>{{ matches.date|date:"d-m-Y" }}</td>
+    		<td>{{ matches.time|time:"H:i" }}</td>
+    		<td>{{ matches.court.location.name }}</td>
+    		<td>{{ matches.court.number }}</td>
+    		{% if matches.winner = matches.player_1 %}<td class="red">{% else %}
+    		<td>{% endif %}{{ matches.player_1.first_name }}</td>
+    		{% if matches.winner = matches.player_1 %}<td class="red">{% else %}
+    		<td>{% endif %}{{ matches.score_1 }}</td>
+    		{% if matches.winner = matches.player_2 %}<td class="red">{% else %}
+    		<td>{% endif %}{{ matches.player_2.first_name }}</td>
+    		{% if matches.winner = matches.player_2 %}<td class="red">{% else %}
+    		<td>{% endif %}{{ matches.score_2 }}</td>
+    	</tr>
+	{% endfor %}
+	</table>
+{% else %}
+    <p>No matches are available.</p>
+{% endif %}
+
+{% endblock %}

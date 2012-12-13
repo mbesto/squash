@@ -1,0 +1,20 @@
+{% extends "/home/mbesto/webapps/brosef/mytemplates/squash/base.html" %}
+
+{% block title %}Log-In{% endblock %}
+
+{% block content %}
+
+{{ state }}
+	<form action="" method="post">{% csrf_token %}
+		{% if next %}
+		<input type="hidden" name="next" value="{{ next }}" />
+		{% endif %}
+		username:
+		<input type="text" name="username" value="{{ username}}" /><br />
+		password:
+		<input type="password" name="password" value="" /><br />
+
+		<input type="submit" value="Log In" />
+	</form>
+
+{% endblock %}

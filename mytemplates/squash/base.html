@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<link rel="stylesheet" href="{{ MEDIA_URL }}css/square.css" />
+<link rel="stylesheet" href="{{ MEDIA_URL }}css/layout.css" />
+{% block scripts %}{% endblock %}
+<title>{% block title %}Squash Organizer{% endblock %}</title>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="container">
+			<div class="sg-11">
+				<div class="box"><h1 class="title">Squash Organizer</h1>
+				<p class="small">London squash group organizer</p>
+				</div>
+				
+			</div>
+			<div class="sg-23">
+				<div class="light box" style="float:right">
+					{% block menu %}
+					<ul class="menu">
+						<li><a href="/squash/">Matches</a></li>
+						<li><a href="/squash/events/add/">Add Event</a></li>
+						<li><a href="/squash/events/">Join Event</a></li>
+						<li><a href="#">Standings</a></li>
+						<li><a href="#">Leaderboard</a></li>
+						<li><a href="#">Tokens</a></li>
+						<li><a href="#"></a></li>
+						<li class="log">{% if user.is_authenticated %}<a href="/squash/logout/">Log-out</a>Mbesto{% else %}<a href="/squash/login/">Log-In</a>{% endif %}</li>
+					</ul>
+					{% endblock %}
+				</div>
+			</div>
+			<div class="clear"></div>
+		
+			<div class="sg-34">
+				<div class="light round box">
+				{% block content %}{% endblock %}
+				</div>
+			</div>
+			<div class="clear"></div>
+			
+		</div>
+	</div>
+</body>

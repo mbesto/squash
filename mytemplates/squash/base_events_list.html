@@ -1,0 +1,26 @@
+{% extends "/home/mbesto/webapps/brosef/mytemplates/squash/base.html" %}
+
+{% block title %}View Matches{% endblock %}
+
+{% block content %}
+{% if events_list %}
+	<table class="matchTable">
+    	<tr>
+    		<th>EventID</th>
+    		<th>Date</th>
+    		<th>Time</th>
+    		<th>UserID</th>
+    	</tr>
+    {% for events in events_list %}
+    	<tr class="{% cycle 'row1' 'row2' %}">
+    		<td>{{ events.id }}</td> 
+    		<td>{{ events.date }}</td>
+    		<td>{{ events.time }}</td>
+    		<td>{{ events.userid }}</td>
+    	</tr>
+	{% endfor %}
+	</table>
+{% else %}
+    <p>No events are available.</p>
+{% endif %}
+{% endblock %}

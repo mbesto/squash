@@ -1,0 +1,33 @@
+body {
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+h1 {
+	font-size:2.0em;
+}
+a {
+color: #0000FF;
+}
+a:hover {
+color: #FFFFFF;
+background: #0000FF;
+}
+
+div b
+{display:block; 
+border:1px solid #222; 
+font-size:1.4em; 
+background:#e1f6ff; 
+line-height:22px; 
+font-weight:normal; 
+padding:4px;}
+
+.light { 
+font-weight: 300;
+		
+}
+
+.menu li{
+display:inline;
+margin-left:20px;
+}
